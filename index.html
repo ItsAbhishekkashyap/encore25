@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Encore</title>
   <link href="./src/output.css" rel="stylesheet" />
   <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
   <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" /> -->
@@ -123,6 +123,28 @@
       .swiper-slide {
         max-width: 85vw !important;
       }
+    }
+    .faq-item {
+      background: rgba(19, 19, 19, 0.85);
+      border: 2px solid rgba(255, 215, 0, 0.7);
+      transition: all 0.3s ease-in-out;
+    }
+    .faq-item:hover {
+      background: rgba(255, 215, 0, 0.15);
+      transform: scale(1.02);
+    }
+
+    /* FAQ answer is initially hidden */
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    /* Arrow rotation class */
+    .rotate-180 {
+      transform: rotate(180deg);
     }
   </style>
 </head>
@@ -408,7 +430,99 @@
 
     </div>
 
+<!-- FAQ Section -->
 
+    <!-- 8th content -->
+    <div class="w-screen h-screen flex justify-center items-center font-Marcellus bg-gray-600 sm:bg-black text-white">
+      <div class="w-screen h-screen flex justify-center items-center font-Marcellus bg-black text-white">
+        <!-- FAQ Container -->
+        <div class="w-full max-w-5xl p-6 bg-black bg-opacity-70 rounded-2xl shadow-2xl border border-yellow-500">
+          <h1 class="text-5xl font-bold text-center mb-8 text-yellow-400 tracking-widest">
+            Encore FAQ
+          </h1>
+          <div class="space-y-6">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item p-5 rounded-lg shadow-lg">
+              <button class="faq-toggle w-full text-left flex justify-between items-center text-xl font-semibold text-yellow-300 focus:outline-none">
+                What is Encore?
+                <span class="icon transition-transform duration-300">▼</span>
+              </button>
+              <p class="faq-answer mt-2 text-gray-200">
+                Encore is the annual cultural fest of IET Lucknow, featuring music, dance, drama, and more.
+              </p>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item p-5 rounded-lg shadow-lg">
+              <button class="faq-toggle w-full text-left flex justify-between items-center text-xl font-semibold text-yellow-300 focus:outline-none">
+                When is the fest happening?
+                <span class="icon transition-transform duration-300">▼</span>
+              </button>
+              <p class="faq-answer mt-2 text-gray-200">
+                The fest will take place from March 9th to March 11th, 2025, at the IET Lucknow campus.
+              </p>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item p-5 rounded-lg shadow-lg">
+              <button class="faq-toggle w-full text-left flex justify-between items-center text-xl font-semibold text-yellow-300 focus:outline-none">
+                How can I participate in events?
+                <span class="icon transition-transform duration-300">▼</span>
+              </button>
+              <p class="faq-answer mt-2 text-gray-200">
+                Students can register online through the official Encore website or visit the registration desk on campus.
+              </p>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item p-5 rounded-lg shadow-lg">
+              <button class="faq-toggle w-full text-left flex justify-between items-center text-xl font-semibold text-yellow-300 focus:outline-none">
+                Are there any registration fees?
+                <span class="icon transition-transform duration-300">▼</span>
+              </button>
+              <p class="faq-answer mt-2 text-gray-200">
+                Some events have free entry, while others may have a nominal registration fee. Details are available on this website.
+              </p>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item p-5 rounded-lg shadow-lg">
+              <button class="faq-toggle w-full text-left flex justify-between items-center text-xl font-semibold text-yellow-300 focus:outline-none">
+                Will there be food stalls at the venue?
+                <span class="icon transition-transform duration-300">▼</span>
+              </button>
+              <p class="faq-answer mt-2 text-gray-200">
+                Yes! Various food stalls will be available offering delicious snacks and beverages throughout the fest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll(".faq-toggle").forEach(button => {
+            button.addEventListener("click", () => {
+              const answer = button.nextElementSibling;
+              const icon = button.querySelector(".icon");
+    
+              // Check if answer is already expanded
+              if (answer.style.maxHeight && answer.style.maxHeight !== "0px") {
+                // Collapse the answer
+                answer.style.maxHeight = "0px";
+                answer.style.opacity = "0";
+                icon.classList.remove("rotate-180");
+              } else {
+                // Expand the answer to its scrollHeight value
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                answer.style.opacity = "1";
+                icon.classList.add("rotate-180");
+              }
+            });
+          });
+        });
+      </script>
+    </div>
     <!--Footer Content -->
 
     <div class="bg-black h-screen w-screen pt-8 flex flex-col lg:gap-32 items-center justify-center">
@@ -441,7 +555,7 @@
             </svg>
 
             <!-- Clickable Button Inside -->
-            <a href="register"
+            <a href="signup.html"
               class="absolute w-20 h-20 bg-black rounded-full flex items-center justify-center hover:scale-110 transition">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 12">
                 <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z" fill="white" />
