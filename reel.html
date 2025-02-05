@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photography</title>
+  <title>Reel</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -87,10 +87,10 @@
       <Image src="/images/count2.png" width={1500} height={1000} class="ribbonImg w-screen " alt="/" />
     </div>
     <!-- Rulebook Section -->
-    <section class="py-16 bg-[url('/images/enc.png')] font-serif w-screen h-screen bg-cover bg-center px-6">
+    <section class="py-16 bg-[url('/images/enc.png')] w-full min-h-screen bg-cover bg-center px-6">
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl sm:text-2xl md:text-4xl font-semibold text-center text-white mb-12">Rulebook</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-1 font-serif md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Rule Items -->
           <div
@@ -189,7 +189,7 @@
             </svg>
 
             <!-- Clickable Button Inside -->
-            <a href="register"
+            <a href="signup.html"
               class="absolute w-20 h-20 bg-black rounded-full flex items-center justify-center hover:scale-110 transition">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 12">
                 <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z" fill="white" />
